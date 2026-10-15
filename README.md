@@ -41,6 +41,13 @@ Some files, such as for orchestration, are distributed under
 
 The text for `CSSL v1.0` is also available under [LICENSE](LICENSE) file in the same directory.
 
+In the past, the source code has been re-licensed sometimes, here is the
+history:
+
+1. CSSL v1.0 starting 81f88f35.
+2. OAI Public License v1.1 starting b3f671d5.
+4. Apache License Version 2.0: starting 2cbd8d17 (Initial implementation).
+
 # Where to start
 
   The Openair-cn SPGW-U code is written, executed, and tested on `UBUNTU` server `bionic` version.
