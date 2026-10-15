@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: LicenseRef-CSSL-1.0
 set(kmodule_this_module_dir "${CMAKE_SOURCE_DIR}/cmake/modules/")
 set(kmodule_test_sources_dir "${CMAKE_SOURCE_DIR}/cmake/kmodule_sources")
 

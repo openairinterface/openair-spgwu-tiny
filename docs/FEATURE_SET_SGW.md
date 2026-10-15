@@ -1,3 +1,5 @@
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+
 <table style="border-collapse: collapse; border: none;">
   <tr style="border-collapse: collapse; border: none;">
     <td style="border-collapse: collapse; border: none;">
@@ -27,7 +29,7 @@ The Serving Gateway routes and forwards user data packets, while also acting as 
 For idle state UEs, the SGW terminates the downlink data path and triggers paging when downlink data arrives for the UE.
 
 *  It manages and stores UE contexts, e.g. parameters of the IP bearer service, network internal routing information.
-*  It also performs replication of the user traffic in case of lawful interception. 
+*  It also performs replication of the user traffic in case of lawful interception.
 
 # 2. OAI SGW Available Interfaces #
 

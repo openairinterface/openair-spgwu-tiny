@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: LicenseRef-CSSL-1.0
 # - Look for GNU Bison, the parser generator
 # Based off a news post from Andy Cedilnik at Kitware
 # Defines the following:

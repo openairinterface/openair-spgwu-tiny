@@ -1,26 +1,28 @@
---- 
+# SPDX-License-Identifier: MIT
+
+---
 apiVersion: build.openshift.io/v1
 kind: BuildConfig
-metadata: 
+metadata:
   name: oai-spgwu-tiny-base-builder
-spec: 
-  output: 
-    to: 
+spec:
+  output:
+    to:
       kind: ImageStreamTag
       name: "oai-spgwu-tiny-base-builder:oai-oc"
   runPolicy: Serial
   strategy:
     type: Docker
-  source: 
-    secrets: 
+  source:
+    secrets:
       - destinationDir: etc-pki-entitlement
-        secret: 
+        secret:
           name: etc-pki-entitlement
-    configMaps: 
-      - configMap: 
+    configMaps:
+      - configMap:
           name: rhsm-conf
         destinationDir: rhsm-conf
-      - configMap: 
+      - configMap:
           name: rhsm-ca
         destinationDir: rhsm-ca
     dockerfile: |
@@ -100,7 +102,7 @@ spec:
                zlib-devel
 
         WORKDIR /
-        
+
         RUN wget --quiet --tries=3 --retry-connrefused https://github.com/google/googletest/archive/release-1.8.0.tar.gz \
             && tar zxf release-1.8.0.tar.gz \
             && rm -f release-1.8.0.tar.gz \
@@ -108,7 +110,7 @@ spec:
             && cmake . \
             && make \
             && make install
-            
+
         RUN git clone https://github.com/facebook/folly.git \
             && cd folly \
             && git checkout -f v2019.06.17.00 \
@@ -131,11 +133,11 @@ spec:
             && cmake3  .. \
             && make -j $(nproc) \
             && make install
-            
+
         RUN git clone https://github.com/gabime/spdlog.git \
             && cd spdlog && git checkout master \
             && sed -i "/#define SPDLOG_ENABLE_SYSLOG/s/^\/\///g" include/spdlog/tweakme.h
-             
+
         RUN git clone https://github.com/nlohmann/json.git \
             && cd json && git checkout -f v3.10.3 \
             && mkdir _build && cd _build \
@@ -143,4 +145,4 @@ spec:
             && make \
             && make install
 
-         
+

@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: LicenseRef-CSSL-1.0
 # - Look for GNU flex, the lexer generator.
 # Defines the following:
 #  FLEX_EXECUTABLE - path to the flex executable
