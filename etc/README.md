@@ -1,3 +1,5 @@
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+
 # jinj2-generated configuration file #
 
 We are switching to `python3-jinja2` tool in order to generate more complex configuration for our 5G core network functions.

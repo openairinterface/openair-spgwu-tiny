@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: LicenseRef-CSSL-1.0
 # Create rule for obtain one file by copying another one
 function(rule_copy_file target_file source_file)
     add_custom_command(OUTPUT ${target_file}

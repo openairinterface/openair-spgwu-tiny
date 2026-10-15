@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: LicenseRef-CSSL-1.0
 # - Try to find the LibXml2 xml processing library
 # Once done this will define
 #

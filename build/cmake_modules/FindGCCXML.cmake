@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: LicenseRef-CSSL-1.0
 # FindGCCXML
 # ----------
 find_program(GCCXML
