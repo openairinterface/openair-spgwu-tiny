@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: LicenseRef-CSSL-1.0
 # Analogue for standard CMake module with same name, appeared in CMake 2.8.3.
 #
 # Used for compatibility with older versions of cmake.

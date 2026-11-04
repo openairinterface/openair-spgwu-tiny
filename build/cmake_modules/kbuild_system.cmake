@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: LicenseRef-CSSL-1.0
 # Provide way for create kernel modules, and perform other actions on them
 # in a way similar to standard cmake executables and libraries processing.
 #

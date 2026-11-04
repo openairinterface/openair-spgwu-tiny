@@ -1,26 +1,28 @@
---- 
+# SPDX-License-Identifier: MIT
+
+---
 apiVersion: build.openshift.io/v1
 kind: BuildConfig
-metadata: 
+metadata:
   name: oai-spgwu-tiny
-spec: 
-  output: 
-    to: 
+spec:
+  output:
+    to:
       kind: ImageStreamTag
       name: "oai-spgwu-tiny:oai-oc"
   runPolicy: Serial
   strategy:
     type: Docker
-  source: 
-    secrets: 
+  source:
+    secrets:
       - destinationDir: etc-pki-entitlement
-        secret: 
+        secret:
           name: etc-pki-entitlement
-    configMaps: 
-      - configMap: 
+    configMaps:
+      - configMap:
           name: rhsm-conf
         destinationDir: rhsm-conf
-      - configMap: 
+      - configMap:
           name: rhsm-ca
         destinationDir: rhsm-ca
     dockerfile: |
@@ -53,7 +55,7 @@ spec:
                 /openair-spgwu-tiny/build/spgw_u/build/oai_spgwu \
                 /openair-spgwu-tiny/scripts/entrypoint.sh \
                 ./
-            
+
             # Copying installed libraries from builder
             COPY --from=oai-spgwu-tiny-dev \
                 /lib64/libgflags.so.2.1 \
@@ -64,16 +66,16 @@ spec:
                 /lib64/
             RUN ldconfig && \
                 ldd /openair-spgwu-tiny/bin/oai_spgwu
-            
+
             # Copying template configuration files
             # The configuration folder will be flat
             WORKDIR /openair-spgwu-tiny/etc
             COPY --from=oai-spgwu-tiny-dev /openair-spgwu-tiny/etc/spgw_u.conf .
-            
+
             WORKDIR /openair-spgwu-tiny
-            
+
             # expose ports
             EXPOSE 2152/udp 8805/udp
-            
+
             CMD ["/openair-spgwu-tiny/bin/oai_spgwu", "-c", "/openair-spgwu-tiny/etc/spgw_u.conf", "-o"]
             ENTRYPOINT ["/openair-spgwu-tiny/bin/entrypoint.sh"]

@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: LicenseRef-CSSL-1.0
 # - Try to find SCTP library and headers
 # Once done, this will define
 #

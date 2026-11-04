@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: LicenseRef-CSSL-1.0
 # - Find freediameter
 # Find the native FreeDiameter includes and libraries
 #

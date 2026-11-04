@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: LicenseRef-CSSL-1.0
 # - Try to find the CHECK libraries
 #  Once done this will define
 #

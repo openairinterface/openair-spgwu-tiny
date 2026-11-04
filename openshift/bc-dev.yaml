@@ -1,26 +1,28 @@
---- 
+# SPDX-License-Identifier: MIT
+
+---
 apiVersion: build.openshift.io/v1
 kind: BuildConfig
-metadata: 
+metadata:
   name: oai-spgwu-tiny-dev
-spec: 
-  output: 
-    to: 
+spec:
+  output:
+    to:
       kind: ImageStreamTag
       name: "oai-spgwu-tiny-dev:oai-oc"
   runPolicy: Serial
   strategy:
     type: Docker
-  source: 
-    secrets: 
+  source:
+    secrets:
       - destinationDir: etc-pki-entitlement
-        secret: 
+        secret:
           name: etc-pki-entitlement
-    configMaps: 
-      - configMap: 
+    configMaps:
+      - configMap:
           name: rhsm-conf
         destinationDir: rhsm-conf
-      - configMap: 
+      - configMap:
           name: rhsm-ca
         destinationDir: rhsm-ca
     dockerfile: |
@@ -29,10 +31,10 @@ spec:
         ################################################################
         FROM image-registry.openshift-image-registry.svc:5000/oai4g/oai-spgwu-tiny-base-builder:oai-oc as oai-spgwu-tiny-builder
         ENV TZ=Europe/Paris
-          
+
         WORKDIR /
         RUN git clone -b develop https://github.com/lionelgo/openair-spgwu-tiny.git
-        
+
         WORKDIR /openair-spgwu-tiny/build/ext
         RUN ln -s /spdlog /openair-spgwu-tiny/build/ext/spdlog \
             && ln -s /json /openair-spgwu-tiny/build/ext/json
@@ -44,17 +46,16 @@ spec:
             && mkdir /openair-spgwu-tiny/bin \
             && cp /openair-spgwu-tiny/build/spgw_u/build/oai_spgwu \
                   /openair-spgwu-tiny/scripts/entrypoint.sh \
-                  /openair-spgwu-tiny/bin 
+                  /openair-spgwu-tiny/bin
 
 
         RUN ldconfig && \
           ldd /openair-spgwu-tiny/bin/oai_spgwu
-      
+
         WORKDIR /openair-spgwu-tiny
-      
+
         # expose ports
         EXPOSE 2152/udp 8805/udp
-      
+
         CMD ["/openair-spgwu-tiny/bin/oai_spgwu", "-c", "/openair-spgwu-tiny/etc/spgw_u.conf", "-o"]
         ENTRYPOINT ["/openair-spgwu-tiny/bin/entrypoint.sh"]
-      

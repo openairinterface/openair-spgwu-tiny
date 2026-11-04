@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: LicenseRef-CSSL-1.0
 # Updated FindThreads.cmake that supports pthread-win32
 # Downloaded from http://www.vtk.org/Bug/bug_view_advanced_page.php?bug_id=6399
 

@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: LicenseRef-CSSL-1.0
 # - Support for building kernel modules
 
 # This module defines several variables which may be used when build

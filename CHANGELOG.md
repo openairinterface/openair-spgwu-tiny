@@ -1,3 +1,5 @@
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+
 # RELEASE NOTES: #
 
 ## v1.5.1 -- May 2023 ##
@@ -18,7 +20,7 @@
 
 ## v1.4.0 -- July 2022 ##
 
-* Fix for handling S-NSSAI 
+* Fix for handling S-NSSAI
 * Add support for multiple slices via config file
 * Allowed reusing GTPv1-U socket
 * Fix GTPU offset sequence number

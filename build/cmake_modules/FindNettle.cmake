@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: LicenseRef-CSSL-1.0
 # Find the native Nettle includes, library, and flags
 #
 # NETTLE_INCLUDE_DIR - where to find nettle.h, etc.

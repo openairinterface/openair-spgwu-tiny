@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: LicenseRef-CSSL-1.0
 # Declare variables for path prefixes for different types of files.
 # NB: depends on 'multi_kernel' and 'uninstall_target'.
 
